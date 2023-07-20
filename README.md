@@ -1,11 +1,9 @@
 ## Билд и запуск
 
 ```bash
-# unit tests
-$ docker-comsose build
+docker-comsose build
 
-# e2e tests
-$ docker-comsose up -d
+docker-comsose up -d
 ```
 
-В корне проекта так же лежит коллекция для постмана
+Приложение будет доступно на порту 3000
