@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    restart: always
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongodb_data:/data/db
+
+  test_app:
+    build:
+      context: . # Путь к папке с Dockerfile
+      dockerfile: Dockerfile
+    container_name: test_app
+    restart: always
+    depends_on:
+      - mongodb
+    ports:
+      - '3000:3000'
+    volumes:
+      - /src
+
+volumes:
+  mongodb_data:
